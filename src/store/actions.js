@@ -8,6 +8,11 @@ export const apiRequestSuccess = (key, data) => ({
   payload: { key, data }
 });
 
+export const apiRequestCancel = (key) => ({
+  type: "API_REQUEST_CANCEL",
+  payload: { key }
+});
+
 export const fetchPokemons = () =>
   apiRequest("pokemons", "https://pokeapi.co/api/v2/pokemon?limit=965");
 

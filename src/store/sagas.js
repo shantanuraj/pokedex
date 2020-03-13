@@ -1,13 +1,40 @@
-import { all, call, take, put } from "redux-saga/effects";
+import {
+  all,
+  call,
+  takeEvery,
+  put,
+  take,
+  cancelled,
+  race
+} from "redux-saga/effects";
 import { apiRequestSuccess } from "./actions";
 
-export function* watchApiActions() {
-  while (true) {
-    const action = yield take("API_REQUEST");
-    const { key, url } = action.payload;
-    const response = yield call(fetch, url);
+function* watchApiActions() {
+  yield takeEvery('API_REQUEST', performApiRequest);
+}
+
+const cancelAction = key => action => (
+  action.type === 'API_REQUEST_CANCEL' &&
+  action.payload.key === key
+);
+
+function* performApiRequest (action) {
+  const { key, url } = action.payload;
+  const controller = new AbortController();
+  const signal = controller.signal;
+
+  try {
+    const { response, cancel } = yield race({
+      response: call(fetch, url, { signal }),
+      cancel: take(cancelAction(key))
+    })
+
+    if (cancel) return controller.abort();
+
     const data = yield response.json();
     yield put(apiRequestSuccess(key, data));
+  } finally {
+    if (yield cancelled()) controller.abort();
   }
 }
 
