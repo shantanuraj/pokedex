@@ -1,0 +1,19 @@
+.entry {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.entry h1 {
+  color: var(--color-secondary);
+}
+
+.entry table {
+  width: 100%;
+  max-width: 600px;
+}
+
+.types {
+  margin-bottom: 20px;
+}

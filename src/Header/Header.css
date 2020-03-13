@@ -1,0 +1,13 @@
+nav {
+  margin: 20px;
+  text-align: start;
+}
+
+nav a {
+  border-bottom: 4px solid;
+  margin-right: 16px;
+}
+
+.active {
+  color: var(--color-secondary);
+}

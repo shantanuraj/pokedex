@@ -1,12 +1,13 @@
 import React, { Suspense } from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import "./styles.css";
 
 import { getStore } from "./store";
 import Loading from "./Loading";
+import Header from "./Header";
 
 const store = getStore();
 
@@ -17,10 +18,7 @@ const Pokemon = React.lazy(() => import("./Pokemon"));
 ReactDOM.render(
   <Provider store={store}>
     <Router>
-      <nav>
-        <Link to="/">home</Link>
-        <Link to="/random">random</Link>
-      </nav>
+      <Header />
       <div className="App">
         <Suspense fallback={<Loading />}>
           <Switch>

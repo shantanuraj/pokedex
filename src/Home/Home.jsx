@@ -4,6 +4,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { apiRequest } from "../reducers";
 import { PokemonList } from "./PokemonList";
 
+import "./Home.css";
+
 const fetchPokemons = () =>
   apiRequest("pokemons", "https://pokeapi.co/api/v2/pokemon?limit=965");
 

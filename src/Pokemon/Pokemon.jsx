@@ -3,6 +3,8 @@ import { useSelector, useDispatch } from "react-redux";
 import Loading from "../Loading";
 import { apiRequest } from "../reducers";
 
+import "./Pokemon.css";
+
 const getPokemon = pokemon => state => state[pokemon] || {};
 
 const fetchPokemon = pokemon =>
@@ -19,38 +21,27 @@ export function Pokemon({
   React.useEffect(() => {
     if (!loaded) dispatch(fetchPokemon(pokemon));
   }, [dispatch, pokemon, loaded]);
+
   if (!loaded) {
     return <Loading />;
   }
+
   const { data } = entry;
   const { id, height, weight, sprites, types, name } = data;
   const displayId = id.toString().padStart(3, "0");
   const typeNames = types.sort((a, b) => a.slot - b.slot).map(e => e.type.name);
+
+  const rows = [
+    [ <span>height</span>, <span>{height / 10}m</span> ],
+    [ <span>weight</span>, <span>{weight / 10}kg</span> ]
+  ]
+
   return (
     <div className="entry">
       <h1>{`#${displayId} ${name}`}</h1>
       <Sprites sprites={sprites} />
       <div className="types">{typeNames.join(", ")}</div>
-      <table>
-        <tbody>
-          <tr>
-            <td>
-              <span>height</span>
-            </td>
-            <td>
-              <span>{height / 10}m</span>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <span>weight</span>
-            </td>
-            <td>
-              <span>{weight / 10}kg</span>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+      <Table rows={rows} />
     </div>
   );
 }
@@ -68,5 +59,20 @@ function Sprites({ sprites }) {
         <img height="96px" width="96px" key={src} alt={src} src={src} />
       ))}
     </div>
+  );
+}
+
+function Table({ rows }) {
+  return (
+    <table>
+      <tbody>
+        {rows.map(([info, value], key) => (
+          <tr key={key}>
+            <td>{info}</td>
+            <td>{value}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
   );
 }
