@@ -12,7 +12,7 @@ export function Search () {
   const loaded = pokemons.state === "loaded";
 
   const handleChange = useCallback(
-    () => setQuery(inputRef.current.value),
+    () => setQuery(inputRef.current.value.toLowerCase()),
     [inputRef, setQuery]
   );
 
