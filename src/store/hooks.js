@@ -3,15 +3,15 @@ import { fetchPokemon, fetchPokemons } from './actions';
 import { getPokemon, getPokemons } from './selectors';
 import { useSelector, useDispatch } from 'react-redux';
 
-export function usePokemonList() {
+export function usePokemonList(load = true) {
   const dispatch = useDispatch();
   const pokemons = useSelector(getPokemons);
 
   useEffect(() => {
     const loaded = pokemons.state === "loaded";
     const loading = pokemons.state === "loading";
-    if (!loaded && !loading) dispatch(fetchPokemons());
-  }, [dispatch, pokemons.state]);
+    if (!loaded && !loading && load) dispatch(fetchPokemons());
+  }, [dispatch, load, pokemons.state]);
 
   return pokemons;
 }
