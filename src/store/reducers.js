@@ -18,13 +18,3 @@ export default function app(state = {}, action) {
       return state;
   }
 }
-
-export const apiRequest = (key, url) => ({
-  type: "API_REQUEST",
-  payload: { key, url }
-});
-
-export const apiRequestSuccess = (key, data) => ({
-  type: "API_REQUEST_SUCCESS",
-  payload: { key, data }
-});

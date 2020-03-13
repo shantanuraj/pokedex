@@ -1,26 +1,16 @@
 import React from "react";
-import { useSelector, useDispatch } from "react-redux";
 import Loading from "../Loading";
-import { apiRequest } from "../reducers";
+import { usePokemonEntry } from "../store/hooks";
 
 import "./Pokemon.css";
-
-const getPokemon = pokemon => state => state[pokemon] || {};
-
-const fetchPokemon = pokemon =>
-  apiRequest(pokemon, `https://pokeapi.co/api/v2/pokemon/${pokemon}`);
 
 export function Pokemon({
   match: {
     params: { pokemon }
   }
 }) {
-  const dispatch = useDispatch();
-  const entry = useSelector(getPokemon(pokemon));
+  const entry = usePokemonEntry(pokemon);
   const loaded = entry.state === "loaded";
-  React.useEffect(() => {
-    if (!loaded) dispatch(fetchPokemon(pokemon));
-  }, [dispatch, pokemon, loaded]);
 
   if (!loaded) {
     return <Loading />;

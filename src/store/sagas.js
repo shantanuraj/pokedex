@@ -1,5 +1,5 @@
 import { all, call, take, put } from "redux-saga/effects";
-import { apiRequestSuccess } from "./reducers";
+import { apiRequestSuccess } from "./actions";
 
 export function* watchApiActions() {
   while (true) {

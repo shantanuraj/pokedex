@@ -10,6 +10,9 @@ export function Header () {
         <NavLink to="/" activeClassName="active" exact>home</NavLink>
         <NavLink to="/random">random</NavLink>
       </nav>
+      <aside>
+        <NavLink to="/search">search</NavLink>
+      </aside>
     </header>
   );
 }

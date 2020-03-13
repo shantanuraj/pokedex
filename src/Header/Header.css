@@ -1,9 +1,10 @@
-nav {
-  margin: 20px;
-  text-align: start;
+header {
+  display: flex;
+  padding: 20px;
+  justify-content: space-between;
 }
 
-nav a {
+header a {
   border-bottom: 4px solid;
   margin-right: 16px;
 }
