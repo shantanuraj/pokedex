@@ -17,6 +17,5 @@ export function Random() {
   }
   const { results } = pokemons.data;
   const randomEntry = results[randomInRange(0, results.length - 1)];
-  console.log(randomEntry, getId(randomEntry));
   return <Redirect to={`/entry/${getId(randomEntry)}`} />;
 }

@@ -35,6 +35,7 @@ export function Search () {
             onChange={handleChange}
             type="search"
             autoComplete="off"
+            autoFocus
           />
           <PokemonList pokemons={filteredList} />
         </React.Fragment>

@@ -9,6 +9,7 @@ import "./styles.css";
 import { getStore } from "./store";
 import Loading from "./Loading";
 import Header from "./Header";
+import GlobalShortcuts from "./GlobalShortcuts";
 
 const store = getStore();
 
@@ -30,6 +31,7 @@ ReactDOM.render(
             <Route path="/entry/:pokemon" component={Pokemon} />
           </Switch>
         </Suspense>
+        <GlobalShortcuts />
       </div>
     </Router>
   </Provider>,
