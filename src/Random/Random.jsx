@@ -8,5 +8,3 @@ function randomInRange(min, max) {
 export function Random() {
   return <Redirect to={`/entry/${randomInRange(0, 807)}`} />;
 }
-
-export default Random;

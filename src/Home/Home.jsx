@@ -1,7 +1,7 @@
 import React from "react";
-import { Loading } from "./Loading";
+import Loading from "../Loading";
 import { useSelector, useDispatch } from "react-redux";
-import { apiRequest } from "./reducers";
+import { apiRequest } from "../reducers";
 import { PokemonList } from "./PokemonList";
 
 const fetchPokemons = () =>
@@ -25,4 +25,3 @@ export function Home() {
   );
 }
 
-export default Home;

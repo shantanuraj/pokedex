@@ -6,7 +6,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import "./styles.css";
 
 import { getStore } from "./store";
-import { Loading } from "./Loading";
+import Loading from "./Loading";
 
 const store = getStore();
 
