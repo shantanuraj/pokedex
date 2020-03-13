@@ -1,0 +1,52 @@
+html,
+body {
+  font-family: sans-serif;
+  text-align: center;
+  color: palevioletred;
+  font-weight: bold;
+}
+
+nav {
+  margin: 20px;
+  text-align: start;
+}
+
+nav a {
+  border-bottom: 4px solid;
+  margin-right: 16px;
+}
+
+.App {
+  padding: 20px;
+}
+
+.home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  max-width: 768px;
+}
+
+li {
+  text-align: start;
+  border-bottom: 4px solid palevioletred;
+  list-style: none;
+  padding: 20px;
+  cursor: pointer;
+}
+
+a {
+  color: palevioletred;
+  text-decoration: none;
+}
+
+.types {
+  margin-bottom: 20px;
+}
