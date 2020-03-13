@@ -29,7 +29,7 @@ export function usePokemonEntry(nameOrId) {
     const loading = entry.state === "loading";
     if (!loaded && !loading) dispatch(fetchPokemon(nameOrId));
     return () => {
-      if (loading) dispatch(apiRequestCancel(nameOrId))
+      if (loading) dispatch(apiRequestCancel(`pokemon_${nameOrId}`))
     }
   }, [dispatch, nameOrId, entry.state]);
 

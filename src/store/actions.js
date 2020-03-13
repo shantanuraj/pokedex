@@ -17,4 +17,4 @@ export const fetchPokemons = () =>
   apiRequest("pokemons", "https://pokeapi.co/api/v2/pokemon?limit=965");
 
 export const fetchPokemon = pokemon =>
-  apiRequest(pokemon, `https://pokeapi.co/api/v2/pokemon/${pokemon}`);
+  apiRequest(`pokemon_${pokemon}`, `https://pokeapi.co/api/v2/pokemon/${pokemon}`);
