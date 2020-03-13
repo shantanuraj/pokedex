@@ -17,13 +17,14 @@ export function Pokemon({
   }
 
   const { data } = entry;
-  const { id, height, weight, sprites, types, name } = data;
+  const { id, height, weight, sprites, types, name, stats } = data;
   const displayId = id.toString().padStart(3, "0");
   const typeNames = types.sort((a, b) => a.slot - b.slot).map(e => e.type.name);
 
   const rows = [
     [ <span>height</span>, <span>{height / 10}m</span> ],
-    [ <span>weight</span>, <span>{weight / 10}kg</span> ]
+    [ <span>weight</span>, <span>{weight / 10}kg</span> ],
+    ...stats.map(info => [info.stat.name, info.base_stat]),
   ]
 
   return (
