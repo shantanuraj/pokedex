@@ -4,7 +4,7 @@ export default function app(state = {}, action) {
       const { key } = action.payload;
       return {
         ...state,
-        [key]: { state: "loading" }
+        [key]: { state: "loading", data: {} }
       };
     }
     case "API_REQUEST_SUCCESS": {

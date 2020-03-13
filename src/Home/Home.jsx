@@ -1,6 +1,6 @@
 import React from "react";
 import Loading from "../Loading";
-import { PokemonList } from "./PokemonList";
+import PokemonList from "../PokemonList";
 import { usePokemonList } from "../store/hooks";
 
 import "./Home.css";
