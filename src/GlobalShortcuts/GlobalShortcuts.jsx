@@ -10,6 +10,7 @@ export function GlobalShortcuts() {
   const history = useHistory();
   useEffect(() => {
     const handleKeydown = (e) => {
+      if (history.location.pathname === '/search') return;
       if (Keys.cmd(e) && e.keyCode === Keys.f) {
         e.preventDefault();
         history.push('/search');
