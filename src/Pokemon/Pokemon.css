@@ -22,3 +22,20 @@
 .types {
   margin-bottom: 20px;
 }
+
+.otherSprites {
+  height: 0;
+  overflow: hidden;
+  transition: all 0.3s ease-in;
+  transform: translateY(-80vh);
+}
+.otherSprites[data-visible="true"] {
+  height: auto;
+  overflow: unset;
+  transform: translateY(0);
+}
+
+.entry button {
+  cursor: pointer;
+  min-width: 96px;
+}
